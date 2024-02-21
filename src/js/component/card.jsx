@@ -1,12 +1,9 @@
 import React from "react";
 
-const Card = () => {
+const Card = ({digit}) => {
     return (
-        <div className="card">
-                <div className="card-body">
-                    <p className="card-text"></p>
-                    <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+        <div className="col-1 text-bg-dark" >
+            <h2 className=" fs-1">{digit}</h2>
         </div>
     )
 }
