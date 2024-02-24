@@ -1,9 +1,12 @@
 import React from "react";
 import Card from "./card";
+import ClearButton from "./clearButton";
+import PauseButton from "./pauseButton";
+import RestartButton from "./restart";
+import ContinueButton from "./continueButton";
 
 
-
-const Home = ({ value }) => {
+const Home = ({ value , clearCounter, pauseButton, restartButton, continueButton}) => {
 	return (
 		<div className="container text-center">
 			<div className="row card-group justify-content-center ">
@@ -14,6 +17,10 @@ const Home = ({ value }) => {
 				<Card digit= {(Math.floor(value / 10)) % 10} />
 				<Card digit= {(Math.floor(value / 1)) % 10} />
 			</div>
+			<ClearButton clearCounter={clearCounter}/>
+			<PauseButton pauseButton={pauseButton}/>
+			<RestartButton restartButton={restartButton}/>
+			<ContinueButton ContinueButton={continueButton}/>
 		</div>
 	);
 };

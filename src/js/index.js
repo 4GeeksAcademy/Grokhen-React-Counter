@@ -1,21 +1,41 @@
-//import react into the bundle
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
-// include your styles into the webpack bundle
+
 import "../styles/index.css";
 
-//import your own components
+
 import Home from "./component/home.jsx";
 
-//render your react application
 
 
+let intervalo;
 let seconds = 0;
 
+const clearCounter = () => {
+    seconds = 0;
+}
+
+const pauseButton = () => {
+    clearInterval(intervalo);
+}
+
+const restartButton = () => {
+    clearCounter();
+    clearInterval(intervalo);
+    secondsFunction();
+}
+
+const continueButton = () => {
+    secondsFunction();
+}
 
 
-const secondsFunction = setInterval(() => {
-    seconds++;
-    ReactDOM.render(<Home value = {seconds} />, document.querySelector("#app"));
-}, 1000);
+const secondsFunction = () => {
+    intervalo = setInterval(() => {
+        ReactDOM.render(<Home value={seconds} clearCounter={clearCounter} pauseButton={pauseButton} restartButton={restartButton} continueButton={continueButton}/>, document.querySelector("#app"));
+        seconds++;       
+    }, 1000);
+}
+   
+secondsFunction();
