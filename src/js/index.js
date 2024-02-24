@@ -9,6 +9,7 @@ import Home from "./component/home.jsx";
 
 
 
+
 let intervalo;
 let seconds = 0;
 
@@ -27,14 +28,24 @@ const restartButton = () => {
 }
 
 const continueButton = () => {
+    clearInterval(intervalo);
     secondsFunction();
+}
+
+const setButton = () => {
+    let alarmTime = prompt("¿Cuando quieres que te avise? (Por favor, introduce el tiempo en segundos, esto es una Demo.");
+    let fixedTime = (parseInt(alarmTime) + 2) * 1000;
+    setTimeout(() => {
+        window.alert("Ya es la hora");
+    }, fixedTime);
+    restartButton();
 }
 
 
 const secondsFunction = () => {
     intervalo = setInterval(() => {
-        ReactDOM.render(<Home value={seconds} clearCounter={clearCounter} pauseButton={pauseButton} restartButton={restartButton} continueButton={continueButton}/>, document.querySelector("#app"));
-        seconds++;       
+        ReactDOM.render(<Home value={seconds} clearCounter={clearCounter} pauseButton={pauseButton} restartButton={restartButton} continueButton={continueButton} setButton={setButton}/>, document.querySelector("#app"));
+        seconds++
     }, 1000);
 }
    
