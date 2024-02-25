@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./card";
 import ClearButton from "./clearButton";
 import PauseButton from "./pauseButton";
-import RestartButton from "./restart";
+import RestartButton from "./restartButton";
 import ContinueButton from "./continueButton";
 import SetButton from "./setAlarm";
 
